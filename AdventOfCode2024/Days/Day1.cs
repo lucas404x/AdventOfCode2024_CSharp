@@ -28,7 +28,7 @@ internal class Day1 : Day
     public override string SecondHalf()
     {
         List<int> left = [];
-        Dictionary<int, int> rightLocationOccurences = [];
+        Dictionary<int, int> rightLocationOccurrences = [];
         
         
         foreach (var line in Input)
@@ -38,20 +38,16 @@ internal class Day1 : Day
             int rightValue = int.Parse(values[1]);
             
             left.Add(leftValue);
-            if (rightLocationOccurences.ContainsKey(rightValue))
+            if (!rightLocationOccurrences.TryAdd(rightValue, 1))
             {
-                rightLocationOccurences[rightValue]++;
-            }
-            else
-            {
-                rightLocationOccurences.Add(rightValue, 1);
+                rightLocationOccurrences[rightValue]++;
             }
         }
-        
+
         return left.
             Sum(x =>
             {
-                if (rightLocationOccurences.TryGetValue(x, out int count))
+                if (rightLocationOccurrences.TryGetValue(x, out int count))
                 {
                     return x * count;
                 }
