@@ -3,6 +3,7 @@ namespace AdventOfCode2024.Days;
 internal class Day4 : Day
 {
     private const int XmasSize = 4;
+    private const int masSize = 3;
     
     public override string FirstHalf()
     {
@@ -21,12 +22,7 @@ internal class Day4 : Day
                     letters.Add(Input[i - 1][j]);
                     letters.Add(Input[i - 2][j]);
                     letters.Add(Input[i - 3][j]);
-                    if (IsValid(letters))
-                    {
-                        xmasCounter++;
-                        PrintList(letters, xmasCounter);
-                        Console.WriteLine($"({i + 1},{j + 1})");
-                    }
+                    if (IsValid(letters)) xmasCounter++;
                     letters.Clear();
                 }
                 if (i <= heightBoundary) // down
@@ -35,12 +31,7 @@ internal class Day4 : Day
                     letters.Add(Input[i + 1][j]);
                     letters.Add(Input[i + 2][j]);
                     letters.Add(Input[i + 3][j]);
-                    if (IsValid(letters))
-                    {
-                        xmasCounter++;
-                        PrintList(letters, xmasCounter);
-                        Console.WriteLine($"({i + 1},{j + 1})");
-                    }
+                    if (IsValid(letters)) xmasCounter++;
                     letters.Clear();
                 }
                 if (j + 1 >= XmasSize) // left
@@ -49,12 +40,7 @@ internal class Day4 : Day
                     letters.Add(Input[i][j - 1]);
                     letters.Add(Input[i][j - 2]);
                     letters.Add(Input[i][j - 3]);
-                    if (IsValid(letters))
-                    {
-                        xmasCounter++;
-                        PrintList(letters, xmasCounter);
-                        Console.WriteLine($"({i + 1},{j + 1})");
-                    }
+                    if (IsValid(letters)) xmasCounter++;
                     letters.Clear();
                     
                     if (i + 1 >= XmasSize) // up
@@ -63,12 +49,7 @@ internal class Day4 : Day
                         letters.Add(Input[i - 1][j - 1]);
                         letters.Add(Input[i - 2][j - 2]);
                         letters.Add(Input[i - 3][j - 3]);
-                        if (IsValid(letters))
-                        {
-                            xmasCounter++;
-                            PrintList(letters, xmasCounter);
-                            Console.WriteLine($"({i + 1},{j + 1})");
-                        }
+                        if (IsValid(letters)) xmasCounter++;
                         letters.Clear();
                     }
                     
@@ -78,12 +59,7 @@ internal class Day4 : Day
                         letters.Add(Input[i + 1][j - 1]);
                         letters.Add(Input[i + 2][j - 2]);
                         letters.Add(Input[i + 3][j - 3]);
-                        if (IsValid(letters))
-                        {
-                            xmasCounter++;
-                            PrintList(letters, xmasCounter);
-                            Console.WriteLine($"({i + 1},{j + 1})");
-                        }
+                        if (IsValid(letters)) xmasCounter++;
                         letters.Clear();
                     }
                 }
@@ -93,12 +69,7 @@ internal class Day4 : Day
                     letters.Add(Input[i][j + 1]);
                     letters.Add(Input[i][j + 2]);
                     letters.Add(Input[i][j + 3]);
-                    if (IsValid(letters))
-                    {
-                        xmasCounter++;
-                        PrintList(letters, xmasCounter);
-                        Console.WriteLine($"({i + 1},{j + 1})");
-                    }
+                    if (IsValid(letters)) xmasCounter++;
                     letters.Clear();
 
                     if (i + 1 >= XmasSize) // up
@@ -107,12 +78,7 @@ internal class Day4 : Day
                         letters.Add(Input[i - 1][j + 1]);
                         letters.Add(Input[i - 2][j + 2]);
                         letters.Add(Input[i - 3][j + 3]);
-                        if (IsValid(letters))
-                        {
-                            xmasCounter++;
-                            PrintList(letters, xmasCounter);
-                            Console.WriteLine($"({i + 1},{j + 1})");
-                        }
+                        if (IsValid(letters)) xmasCounter++;
                         letters.Clear();
                     }
                     
@@ -122,12 +88,7 @@ internal class Day4 : Day
                         letters.Add(Input[i + 1][j + 1]);
                         letters.Add(Input[i + 2][j + 2]);
                         letters.Add(Input[i + 3][j + 3]);
-                        if (IsValid(letters))
-                        {
-                            xmasCounter++;
-                            PrintList(letters, xmasCounter);
-                            Console.WriteLine($"({i + 1},{j + 1})");
-                        }
+                        if (IsValid(letters)) xmasCounter++;
                         letters.Clear();
                     }
                 }
@@ -142,19 +103,40 @@ internal class Day4 : Day
         var str = string.Join(string.Empty, letters);
         return str is "XMAS" or "SAMX";
     }
-
-    private static void PrintList(HashSet<char> letters, int counter)
-    {
-        foreach (var letter in letters)
-        {
-            Console.Write(letter);
-        }
-        Console.Write($" - {counter}");
-        Console.WriteLine();
-    }
     
     public override string SecondHalf()
     {
-        return string.Empty;
+        int masCounter = 0;
+        for (int i = 1; i < Input.Length - 1; i++)
+        {
+            for (int j = 1; j < Input[i].Length - 1; j++)
+            {
+                if (Input[i][j] != 'A') continue; 
+                HashSet<char> letters = [];
+                HashSet<char> letters2 = [];
+                
+                letters.Add(Input[i - 1][j + 1]);
+                letters.Add(Input[i][j]);
+                letters.Add(Input[i + 1][j - 1]);
+
+                if (IsValidMas(letters))
+                {
+                    letters2.Add(Input[i - 1][j - 1]);
+                    letters2.Add(Input[i][j]);
+                    letters2.Add(Input[i + 1][j + 1]);
+                    if (IsValidMas(letters2)) masCounter++;
+                }
+                letters.Clear();
+                letters2.Clear();
+            }
+        }
+        return masCounter.ToString();
+    }
+    
+    private static bool IsValidMas(HashSet<char> letters)
+    {
+        if (letters.Count != masSize) return false;
+        var str = string.Join(string.Empty, letters);
+        return str[1] == 'A' && !str.Contains('X');
     }
 }
