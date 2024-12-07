@@ -12,4 +12,4 @@ static async Task Run<T>() where T : Day, new()
     Console.WriteLine($"Second Half: {day.SecondHalf()}");
 }
 
-await Run<Day3>();
+await Run<Day4>();

@@ -7,14 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b41a50b6-251a-4a95-a62d-97932ecca3e8" name="Changes" comment="Upload files">
-      <change afterPath="$PROJECT_DIR$/AdventOfCode2024/Days/Day3.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdventOfCode2024/Inputs/day3.txt" afterDir="false" />
+    <list default="true" id="b41a50b6-251a-4a95-a62d-97932ecca3e8" name="Changes" comment="feat(day3): add solutions">
+      <change afterPath="$PROJECT_DIR$/AdventOfCode2024/Days/Day4.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdventOfCode2024/Inputs/day4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventOfCode2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventOfCode2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdventOfCode2024.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2024.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdventOfCode2024/AdventOfCode2024.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2024/AdventOfCode2024.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdventOfCode2024/Days/Day2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2024/Days/Day2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdventOfCode2024/Inputs/day2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2024/Inputs/day2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdventOfCode2024/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2024/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,9 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/243a037ca7a04510a506adfdd94befbac90930/79/833a99c1/Number.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ae404df897e94a6c31f9ffff36db7d4351656ba241f9913b16a5445195a0c0/HashSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddd2e1cb86715125e6335e396ef8b489dcb4f23f331df3e2ba8fb969091bd/Regex.Match.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Programming/Dotnet/AdventOfCode/AdventOfCode2024/Days/Day2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -58,7 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdventOfCode2024.executor": "Debug",
+    ".NET Project.AdventOfCode2024.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
@@ -102,7 +101,7 @@
       <updated>1733082001657</updated>
       <workItem from="1733082002820" duration="3201000" />
       <workItem from="1733449823444" duration="8286000" />
-      <workItem from="1733528223387" duration="3112000" />
+      <workItem from="1733528223387" duration="12261000" />
     </task>
     <task id="LOCAL-00001" summary="Upload files">
       <option name="closed" value="true" />
@@ -112,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733082321798</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(day3): add solutions">
+      <option name="closed" value="true" />
+      <created>1733531509581</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733531509581</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,25 +130,14 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Upload files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload files" />
+    <MESSAGE value="feat(day3): add solutions" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(day3): add solutions" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdventOfCode2024/Days/Day3.cs</url>
-          <line>38</line>
-          <properties documentPath="E:\Programming\Dotnet\AdventOfCode\AdventOfCode2024\Days\Day3.cs" containingFunctionPresentation="Method 'SecondHalf'">
-            <startOffsets>
-              <option value="1226" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1252" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="DotNetProject">
+        <watch expression="letters" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
